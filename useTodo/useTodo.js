@@ -1,26 +1,10 @@
 import { useEffect, useReducer } from "react";
-import { todoReducer } from "../08-useReducer/todoReducer";
+import { todoReducer } from "../useTodo/todoReducer";
 
-// se puede incializar asi tambien
-/* const initialValue = JSON.parse(localStorage.getItem('todos')); */
-/* {
-    id: new Date().getTime(),
-    description: 'Recolectar la piedra del alma',
-    done: false,
-},
-{
-    id: new Date().getTime() * 3,
-    description: 'Recolectar la piedra del Poder',
-    done: false,
-} */
-const initialValue = [];
-/* Le enviamos el valor inicial al reducer */
 const init = () => {
     return JSON.parse(localStorage.getItem('todos') || []);
 }
-
 export const useTodo = () => {
-
     /* Pasamos la referencia de la funcion todoReducer al useReduce */
     const [state, dispatch] = useReducer(todoReducer, [], init);
     /* Cuando useReducer debemos ejecutar un efecto secundario */
